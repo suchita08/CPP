@@ -32,5 +32,5 @@ int main()
     cout<<v[n-1]<<"\n";
     }
     return 0;
-    
-} 
+
+}
