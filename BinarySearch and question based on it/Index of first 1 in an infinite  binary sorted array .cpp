@@ -10,19 +10,6 @@ using namespace std;
 
 
 // Time Complexity :: Let p be the position of element to be searched. Number of steps for finding high index ‘h’ is O(Log p). The value of ‘h’ must be less than 2*p. The number of elements between h/2 and h must be O(p). Therefore, time complexity of Binary Search step is also O(Log p) and overall time complexity is 2*O(Log p) which is O(Log p).
-
-int get_upper_bound(int arr[],int key)
-{
-    int start=0;
-    int end=1;
-    while(arr[end]<key)
-    {
-        start=end;
-        end=end*2;
-    }
-    return end;
-}
-
 int binary_search(int arr[],int start,int end,int x)
 {
     int res=-1;
@@ -48,17 +35,30 @@ int binary_search(int arr[],int start,int end,int x)
     }
     return res;
 }
+int get_upper_bound(int arr[],int key)
+{
+    int start=0;
+    int end=1;
+    while(arr[end]<key)
+    {
+        start=end;
+        end=end*2;
+    }
+    return binary_search(arr,start,end,key);
+}
+
+
 int main()
 {
     
         fast;
         int arr[] = {0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1}; 
 	    int ele=1;
-	    int high=get_upper_bound(arr,ele);
+	    int ans=get_upper_bound(arr,ele);
 	    
-	    int a1=binary_search(arr,0,high,ele);
+	    //int a1=binary_search(arr,0,high,ele);
 	    
-	    cout<<a1<<"\n";
+	    cout<<ans<<"\n";
 	   
 	return 0;
 }
