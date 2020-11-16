@@ -27,9 +27,9 @@ int find_peak_element(int size,int arr[],int start,int end)
                 start=mid+1;
             }
                 
-            else if(arr[mid]<arr[mid])
+            else if(arr[mid-1]<arr[mid])
             {
-                start=mid+1;
+                end=mid-1;
             }
         }
         else if(mid==0)
